@@ -16,11 +16,7 @@ public class CoinCounter : MonoBehaviour
         coinValue = mainDoc.rootVisualElement.Q<Label>("CoinValue");
         coinTarget = mainDoc.rootVisualElement.Q<Label>("CoinTarget");
         setCoinTargetValue();
-    }
-
-    void Update()
-    {
-        
+        increaseCoinValue(125);
     }
 
     public void increaseCoinValue(int coins)
