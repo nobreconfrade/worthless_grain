@@ -16,13 +16,10 @@ public class WorkerLogic : MonoBehaviour
     public GameObject sodaMachine;
     public GameObject table;
     public Animator animator;
-    public float sodaMachineIterSeconds = 10f;
-    public float storageIterSeconds = 10f;
-    public float grillIterSeconds = 10f;
-    private int[] agentSpeed = {4, 6, 8, 10, 15, 20};
-    public int agentSpeedLevel = 0;
+    public int[] machinesIterTime = {10, 9, 8, 7, 5, 3};
+    private int[] agentSpeedValue = {4, 6, 8, 10, 15, 20};
 
-
+    private AgentLevels agentLevels = new AgentLevels();
 
     void Start()
     {
@@ -61,12 +58,33 @@ public class WorkerLogic : MonoBehaviour
 
     public void IncreaseChefSpeed()
     {
-        if (agentSpeedLevel + 1 < agentSpeed.Length)
+        if (agentLevels.agentSpeed + 1 < agentSpeedValue.Length)
         {
-            agentSpeedLevel += 1;
+            agentLevels.agentSpeed += 1;
         }
     }
-
+    public void IncreaseGrillIterLevel()
+    {
+        if (agentLevels.grillIter + 1 < machinesIterTime.Length)
+        {
+            agentLevels.grillIter += 1;
+        }
+    }
+    public void IncreaseStorageIterLevel()
+    {
+        if (agentLevels.storageIter + 1 < machinesIterTime.Length)
+        {
+            agentLevels.storageIter += 1;
+        }
+    }
+    public void IncreaseSodaMachineIterLevel()
+    {
+        if (agentLevels.sodaMachineIter + 1 < machinesIterTime.Length)
+        {
+            agentLevels.sodaMachineIter += 1;
+        }
+    }
+    
     private void prepareFood()
     {
         cooking = true;
@@ -87,10 +105,10 @@ public class WorkerLogic : MonoBehaviour
 
     void DefineAgentSpeed()
     {
-        if(agent.acceleration != agentSpeed[agentSpeedLevel] && agent.speed != agentSpeed[agentSpeedLevel])
+        if(agent.acceleration != agentSpeedValue[agentLevels.agentSpeed] && agent.speed != agentSpeedValue[agentLevels.agentSpeed])
         {
-            agent.acceleration = agentSpeed[agentSpeedLevel];
-            agent.speed = agentSpeed[agentSpeedLevel];
+            agent.acceleration = agentSpeedValue[agentLevels.agentSpeed];
+            agent.speed = agentSpeedValue[agentLevels.agentSpeed];
         }
     }
 
@@ -105,7 +123,7 @@ public class WorkerLogic : MonoBehaviour
             if(agent.remainingDistance < distanceToStop && agent.velocity == Vector3.zero)
             {
                 Debug.Log("Chef arrived! " + Time.time.ToString());
-                WaitForSeconds wait = new WaitForSeconds(sodaMachineIterSeconds);
+                WaitForSeconds wait = new WaitForSeconds(machinesIterTime[agentLevels.sodaMachineIter]);
                 yield return wait;
                 Debug.Log("Soda ready! "+ Time.time.ToString());
                 preparing = false;
@@ -128,13 +146,13 @@ public class WorkerLogic : MonoBehaviour
                 Debug.Log("Chef arrived! " + Time.time.ToString());
                 if (!storageDone) 
                 {
-                    WaitForSeconds wait = new WaitForSeconds(storageIterSeconds);
+                    WaitForSeconds wait = new WaitForSeconds(machinesIterTime[agentLevels.storageIter]);
                     yield return wait;
                     Debug.Log("Itens retrieved! "+ Time.time.ToString());
                     storageDone = true;
                     agent.SetDestination(grill.transform.position + new Vector3(5, 0, 0));
                 } else {
-                    WaitForSeconds wait = new WaitForSeconds(grillIterSeconds);
+                    WaitForSeconds wait = new WaitForSeconds(machinesIterTime[agentLevels.grillIter]);
                     yield return wait;
                     Debug.Log("Burguer done! "+ Time.time.ToString());
                     preparing = false;
@@ -148,5 +166,26 @@ public class WorkerLogic : MonoBehaviour
     {
         Debug.Log("Delivering");
         agent.SetDestination(table.transform.position + new Vector3(-9.77f, -2.47f, 0));
+    }
+
+    
+    public int getAgentSpeedLevel(){
+        return agentLevels.agentSpeed;
+    }
+    public int getGrillIterLevel(){
+        return agentLevels.grillIter;
+    }    
+    public int getStorageIterLevel(){
+        return agentLevels.storageIter;
+    }    public int getSodaMachineIterLevel(){
+        return agentLevels.sodaMachineIter;
+    }
+
+    class AgentLevels 
+    {
+        public int sodaMachineIter {get;set;} = 0;
+        public int storageIter {get;set;} = 0;
+        public int grillIter {get;set;} = 0;
+        public int agentSpeed {get;set;} = 0;
     }
 }
