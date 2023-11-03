@@ -23,6 +23,23 @@ public class CoinCounter : MonoBehaviour
         
     }
 
+    public void increaseCoinValue(int coins)
+    {
+        int current = int.Parse(coinValue.text);
+        coinValue.text = (current + coins).ToString("D3");
+    }
+
+    public bool doTransaction(int coins)
+    {
+        int current = int.Parse(coinValue.text);
+        if (coins <= current)
+        {
+            coinValue.text = (current - coins).ToString("D3");
+            return true;
+        }
+        return false;
+    }
+
     void setCoinTargetValue()
     {
         int[] levelTarget = {150, 400, 750, 999};
@@ -31,9 +48,4 @@ public class CoinCounter : MonoBehaviour
         coinTarget.text = levelTarget[level].ToString();
     }
 
-    public void increaseCoinValue(int coins)
-    {
-        int current = int.Parse(coinValue.text);
-        coinValue.text = (current + coins).ToString("D3");
-    }
 }
