@@ -16,6 +16,8 @@ public class ButtonManager : MonoBehaviour
     private VisualElement sodaMachineUpgrader;
     private Label valueChef;
     private Label grillValue;
+    private Label storageValue;
+    private Label sodaMachineValue;
     public Sprite unpressedButton;
     public Sprite pressedButton;
     private int[] ChefSpeedPrice = {25, 50, 75, 125, 200, 450};
@@ -35,14 +37,20 @@ public class ButtonManager : MonoBehaviour
 
         valueChef = mainDoc.rootVisualElement.Q<Label>("ValueChef");
         grillValue = mainDoc.rootVisualElement.Q<Label>("GrillValue");
+        storageValue = mainDoc.rootVisualElement.Q<Label>("StorageValue");
+        sodaMachineValue = mainDoc.rootVisualElement.Q<Label>("SodaMachineValue");
 
         changeChefSpeedValue();
         changeGrillUpCost();
+        changeStorageUpCost();
+        changeSodaMachineUpCost();
         chefButton.RegisterCallback<ClickEvent>(OnChefButtonClick);
         chefButton.RegisterCallback<PointerDownEvent>(PointerDownSpriteChange);
         chefButton.RegisterCallback<PointerUpEvent>(PointerUpSpriteChange);
 
         grillUpgrader.RegisterCallback<ClickEvent>(OnGrillUpgraderClick);
+        storageUpgrader.RegisterCallback<ClickEvent>(OnStorageUpgraderClick);
+        sodaMachineUpgrader.RegisterCallback<ClickEvent>(OnSodaMachineUpgraderClick);
     }
 
     private void changeChefSpeedValue()
@@ -52,6 +60,14 @@ public class ButtonManager : MonoBehaviour
     private void changeGrillUpCost()
     {
         grillValue.text = upgraderPrices[workerLogic.getGrillIterLevel()].ToString();
+    }
+    private void changeStorageUpCost()
+    {
+        storageValue.text = upgraderPrices[workerLogic.getStorageIterLevel()].ToString();
+    }
+    private void changeSodaMachineUpCost()
+    {
+        sodaMachineValue.text = upgraderPrices[workerLogic.getSodaMachineIterLevel()].ToString();
     }
     private void PointerUpSpriteChange(PointerUpEvent evt)
     {
@@ -92,6 +108,34 @@ public class ButtonManager : MonoBehaviour
         {
             // create a responsive feedback
             Debug.Log("not enough coins for grill upgrade stranger");
+        }
+    }
+    void OnStorageUpgraderClick(ClickEvent clk)
+    {
+        if (coinCounter.doTransaction(upgraderPrices[workerLogic.getStorageIterLevel()]))
+        {
+            workerLogic.IncreaseStorageIterLevel();
+            changeStorageUpCost();
+            Debug.Log("storage iter level increased");
+        }
+        else 
+        {
+            // create a responsive feedback
+            Debug.Log("not enough coins for storage upgrade stranger");
+        }
+    }
+    void OnSodaMachineUpgraderClick(ClickEvent clk)
+    {
+        if (coinCounter.doTransaction(upgraderPrices[workerLogic.getSodaMachineIterLevel()]))
+        {
+            workerLogic.IncreaseSodaMachineIterLevel();
+            changeSodaMachineUpCost();
+            Debug.Log("soda machine iter level increased");
+        }
+        else 
+        {
+            // create a responsive feedback
+            Debug.Log("not enough coins for soda machine upgrade stranger");
         }
     }
 }
