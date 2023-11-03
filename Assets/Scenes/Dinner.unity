@@ -1792,9 +1792,10 @@ GameObject:
   - component: {fileID: 2063821561}
   - component: {fileID: 2063821562}
   - component: {fileID: 2063821563}
+  - component: {fileID: 2063821564}
   m_Layer: 5
   m_Name: MainUI
-  m_TagString: Untagged
+  m_TagString: MainUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1848,6 +1849,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unpressedButton: {fileID: 1416270458, guid: d56cde136e89d7d45a6b27e0a2527d5a, type: 3}
   pressedButton: {fileID: -1041231802, guid: d56cde136e89d7d45a6b27e0a2527d5a, type: 3}
+--- !u!114 &2063821564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063821560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa73b171851422646b2c11e7ceddf68b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

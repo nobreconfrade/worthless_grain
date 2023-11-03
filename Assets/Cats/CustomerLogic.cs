@@ -7,6 +7,7 @@ public class CustomerLogic : MonoBehaviour
     private GameObject[] foods;
     private int selectedFood;
     private WorkerLogic workerLogic;
+    private CoinCounter coinCounter;
     private Animator animator;
     private CircleCollider2D circleCollider2D;
     private SpriteRenderer spriteRenderer;
@@ -22,10 +23,12 @@ public class CustomerLogic : MonoBehaviour
     void Start()
     {
         workerLogic = GameObject.FindGameObjectWithTag("ChefCat").GetComponent<WorkerLogic>();
+        coinCounter = GameObject.FindGameObjectWithTag("MainUI").GetComponent<CoinCounter>();
         animator = GetComponent<Animator>();
         circleCollider2D = GetComponent<CircleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
+        // Enable raycast verification
         Physics2D.queriesStartInColliders = false;
 
         foods = new GameObject[] {burguer, soda};
@@ -59,7 +62,6 @@ public class CustomerLogic : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collidingObj) {
-        // float tableDistance = transform.position.y - table.transform.position.y;
         if (collidingObj.gameObject.tag == "Table")
         {
             foods[selectedFood].SetActive(true);
@@ -77,6 +79,7 @@ public class CustomerLogic : MonoBehaviour
         catRigidBody.velocity = new Vector2(1, 0.25f) * catSpeed;
         animator.SetTrigger("startWiggle");
         onQueue = false;
+        coinCounter.increaseCoinValue(10);
     }
 }
 

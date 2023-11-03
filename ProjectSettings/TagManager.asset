@@ -7,6 +7,7 @@ TagManager:
   - CustomerCat
   - ChefCat
   - Table
+  - MainUI
   layers:
   - Default
   - TransparentFX
