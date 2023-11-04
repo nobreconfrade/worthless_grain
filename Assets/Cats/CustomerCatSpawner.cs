@@ -34,4 +34,14 @@ public class CustomerCatSpawner : MonoBehaviour
         Vector3 customerCatPosition = new(transform.position.x, transform.position.y, 0);
         Instantiate(customerCat, customerCatPosition, Quaternion.identity);
     }
+
+    public IEnumerator CatRush()
+    {
+        timer = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            SpawCustomerCat();
+            yield return new WaitForSeconds(1f);
+        }
+    }
 }

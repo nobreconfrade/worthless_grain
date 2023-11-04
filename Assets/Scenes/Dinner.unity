@@ -1086,7 +1086,7 @@ GameObject:
   - component: {fileID: 1633687629}
   m_Layer: 0
   m_Name: CustomerSpawner 1
-  m_TagString: Untagged
+  m_TagString: CustomerSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1374,10 +1374,7 @@ MonoBehaviour:
   sodaMachine: {fileID: 1666367049}
   table: {fileID: 89638818}
   animator: {fileID: 1723498397}
-  sodaMachineIterSeconds: 8
-  storageIterSeconds: 8
-  grillIterSeconds: 8
-  agentSpeedLevel: 0
+  machinesIterTime: 0a0000000900000008000000070000000500000003000000
 --- !u!195 &1723498394
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1598,7 +1595,7 @@ GameObject:
   - component: {fileID: 1859426320}
   m_Layer: 0
   m_Name: CustomerSpawner 2
-  m_TagString: Untagged
+  m_TagString: CustomerSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1793,6 +1790,7 @@ GameObject:
   - component: {fileID: 2063821562}
   - component: {fileID: 2063821563}
   - component: {fileID: 2063821564}
+  - component: {fileID: 2063821565}
   m_Layer: 5
   m_Name: MainUI
   m_TagString: MainUI
@@ -1859,6 +1857,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa73b171851422646b2c11e7ceddf68b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2063821565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063821560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b16b817406027a4caa7e83cae9a3b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
