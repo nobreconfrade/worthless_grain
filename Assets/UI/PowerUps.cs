@@ -84,9 +84,13 @@ public class PowerUps : MonoBehaviour
 
     IEnumerator DoubleEarnings()
     {
+        VisualElement box = mainDoc.rootVisualElement.Q("DoubleEarningsBox");
+
         isDoubleEarnings = true;
+        box.style.display = DisplayStyle.Flex;
         yield return new WaitForSeconds(30f);
         isDoubleEarnings = false;
+        box.style.display = DisplayStyle.None;
         doubleEarningsBar.value = 0f;
     }
 
