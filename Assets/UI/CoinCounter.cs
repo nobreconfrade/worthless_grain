@@ -17,7 +17,7 @@ public class CoinCounter : MonoBehaviour
         coinTarget = mainDoc.rootVisualElement.Q<Label>("CoinTarget");
         setCoinTargetValue();
         // The tester flavor
-        increaseCoinValue(999);
+        // increaseCoinValue(999);
     }
 
     public void increaseCoinValue(int coins)
