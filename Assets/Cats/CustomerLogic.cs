@@ -7,6 +7,7 @@ public class CustomerLogic : MonoBehaviour
     private GameObject[] foods;
     private int selectedFood;
     private WorkerLogic workerLogic;
+    private PowerUps powerUps;
     private CoinCounter coinCounter;
     private Animator animator;
     private CircleCollider2D circleCollider2D;
@@ -23,7 +24,10 @@ public class CustomerLogic : MonoBehaviour
     void Start()
     {
         workerLogic = GameObject.FindGameObjectWithTag("ChefCat").GetComponent<WorkerLogic>();
-        coinCounter = GameObject.FindGameObjectWithTag("MainUI").GetComponent<CoinCounter>();
+        GameObject mainUI = GameObject.FindGameObjectWithTag("MainUI"); 
+        
+        coinCounter = mainUI.GetComponent<CoinCounter>();
+        powerUps = mainUI.GetComponent<PowerUps>();
         animator = GetComponent<Animator>();
         circleCollider2D = GetComponent<CircleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -79,8 +83,16 @@ public class CustomerLogic : MonoBehaviour
         catRigidBody.velocity = new Vector2(1, 0.25f) * catSpeed;
         animator.SetTrigger("startWiggle");
         onQueue = false;
-        coinCounter.increaseCoinValue(10);
+        int foodPrice = 10;
+        if (powerUps.isDoubleEarnings)
+        {
+            foodPrice *= 2;
+        } else {
+            powerUps.UpdateDoubleEarnings(foodPrice);
+        }
+        coinCounter.increaseCoinValue(foodPrice);
     }
+
 }
 
 
