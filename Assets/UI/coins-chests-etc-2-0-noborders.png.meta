@@ -7578,7 +7578,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coins-chests-etc-2-0-noborders_355
+      name: machine_star
       rect:
         serializedVersion: 2
         x: 18
@@ -22718,7 +22718,6 @@ TextureImporter:
       coins-chests-etc-2-0-noborders_352: 506161484
       coins-chests-etc-2-0-noborders_353: 1466864390
       coins-chests-etc-2-0-noborders_354: 273479181
-      coins-chests-etc-2-0-noborders_355: 1097604060
       coins-chests-etc-2-0-noborders_356: 1163856140
       coins-chests-etc-2-0-noborders_357: 210462314
       coins-chests-etc-2-0-noborders_358: 1198109398
@@ -23431,6 +23430,7 @@ TextureImporter:
       coins-chests-etc-2-0-noborders_997: 1691763970
       coins-chests-etc-2-0-noborders_998: -1672469415
       coins-chests-etc-2-0-noborders_999: 652016545
+      machine_star: 1097604060
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
