@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="PauseMenu" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.71); visibility: hidden; overflow: visible; display: flex;">
+        <ui:VisualElement name="PauseBox" style="flex-grow: 1; background-color: rgb(31, 30, 82); align-self: center; width: 35%; height: 50%; position: absolute; top: 25%; border-left-color: rgb(164, 164, 164); border-right-color: rgb(164, 164, 164); border-top-color: rgb(164, 164, 164); border-bottom-color: rgb(164, 164, 164); border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 5px;">
+            <ui:Label tabindex="-1" text="Pause" display-tooltip-when-elided="true" name="PauseLabel" style="align-self: center; align-items: center; color: rgb(255, 255, 255); font-size: 70px; -unity-font-style: italic;" />
+            <ui:VisualElement name="Resume" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                <ui:Label tabindex="-1" text="Resume" display-tooltip-when-elided="true" name="ResumeLabel" style="align-self: center; align-items: center; font-size: 50px; color: rgb(255, 255, 255); top: 50%; bottom: 50%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Quit" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                <ui:Label tabindex="-1" text="Quit&#10;" display-tooltip-when-elided="true" name="QuitLabel" style="align-self: center; align-items: center; font-size: 50px; color: rgb(255, 255, 255); top: 20%; bottom: 50%;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
