@@ -37,6 +37,13 @@ public class CoinCounter : MonoBehaviour
         return false;
     }
 
+    public int[] getFinalScore()
+    {
+        int value = int.Parse(coinValue.text);
+        int target = int.Parse(coinTarget.text);
+        return new [] {value, target};
+    }
+
     void setCoinTargetValue()
     {
         int[] levelTarget = {150, 400, 750, 999};

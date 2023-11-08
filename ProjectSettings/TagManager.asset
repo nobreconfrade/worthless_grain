@@ -9,6 +9,7 @@ TagManager:
   - Table
   - MainUI
   - CustomerSpawner
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
