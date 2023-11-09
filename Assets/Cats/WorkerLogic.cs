@@ -16,8 +16,8 @@ public class WorkerLogic : MonoBehaviour
     public GameObject sodaMachine;
     public GameObject table;
     public Animator animator;
-    public int[] machinesIterTime = {10, 9, 8, 7, 5, 3};
-    private int[] agentSpeedValue = {4, 6, 8, 10, 15, 20};
+    private float[] machinesIterTime = {4, 3, 2, 1, 0.5f, 0.1f};
+    private int[] agentSpeedValue = {6, 10, 14, 18, 25, 32};
 
     private AgentLevels agentLevels = new AgentLevels();
 

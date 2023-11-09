@@ -83,7 +83,15 @@ public class CustomerLogic : MonoBehaviour
         catRigidBody.velocity = new Vector2(1, 0.25f) * catSpeed;
         animator.SetTrigger("startWiggle");
         onQueue = false;
-        int foodPrice = 10;
+        int foodPrice = 0;
+        if (foods[selectedFood].name == "burguer")
+        {
+            foodPrice = 30;
+        } 
+        else if (foods[selectedFood].name == "soda")
+        {
+            foodPrice = 20;
+        }
         if (powerUps.isDoubleEarnings)
         {
             foodPrice *= 2;

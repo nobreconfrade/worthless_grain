@@ -76,7 +76,7 @@ public class PowerUps : MonoBehaviour
 
     void OnDoubleEarningsButtonClick(ClickEvent clk)
     {
-        if(doubleEarningsBar.value >= 100)
+        if(doubleEarningsBar.value >= 100 && !isDoubleEarnings)
         {
             StartCoroutine(DoubleEarnings());
         }
@@ -89,9 +89,9 @@ public class PowerUps : MonoBehaviour
         isDoubleEarnings = true;
         box.style.display = DisplayStyle.Flex;
         yield return new WaitForSeconds(30f);
-        isDoubleEarnings = false;
         box.style.display = DisplayStyle.None;
         doubleEarningsBar.value = 0f;
+        isDoubleEarnings = false;
     }
 
 }

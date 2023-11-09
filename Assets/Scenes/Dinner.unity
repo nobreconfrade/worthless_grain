@@ -1104,7 +1104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerCat: {fileID: 8011908504031994252, guid: 2f131fe046b0c03498ade6d0f12438f7, type: 3}
-  originalSpawnRate: 35
+  originalSpawnRate: 15
   spawnRateChance: 3
 --- !u!4 &1633687630
 Transform:
@@ -1675,7 +1675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerCat: {fileID: 8011908504031994252, guid: 2f131fe046b0c03498ade6d0f12438f7, type: 3}
-  originalSpawnRate: 45
+  originalSpawnRate: 25
   spawnRateChance: 3
 --- !u!4 &1859426321
 Transform:
